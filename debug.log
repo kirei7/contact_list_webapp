@@ -1,0 +1,2 @@
+2016-07-09 14:32:38,604 DEBUG [main] debug [Application.java:32] Starting WEBAPP
+2016-07-09 14:33:23,190 DEBUG [http-nio-8080-exec-1] debug [SampleController.java:20] index page

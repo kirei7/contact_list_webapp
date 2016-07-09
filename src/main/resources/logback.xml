@@ -1,0 +1,25 @@
+<configuration>
+    <appender name="DEBUG-FILE" class="ch.qos.logback.core.FileAppender">
+        <file>debug.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- additivity=false ensures analytics data only goes to the analytics log -->
+    <logger name="debug" level="DEBUG" additivity="false">
+        <appender-ref ref="DEBUG-FILE"/>
+    </logger>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- Log message format -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <!-- Setting the root level of logging to INFO -->
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
