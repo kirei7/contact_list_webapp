@@ -1,2 +1,8 @@
 2016-07-09 14:32:38,604 DEBUG [main] debug [Application.java:32] Starting WEBAPP
 2016-07-09 14:33:23,190 DEBUG [http-nio-8080-exec-1] debug [SampleController.java:20] index page
+2016-07-09 21:30:45,886 DEBUG [main] debug [Application.java:32] Starting WEBAPP
+2016-07-09 21:30:56,233 DEBUG [http-nio-8080-exec-1] debug [SampleController.java:20] index page
+2016-07-09 21:32:51,416 DEBUG [main] debug [Application.java:32] Starting WEBAPP
+2016-07-09 21:33:02,380 DEBUG [http-nio-8080-exec-1] debug [SampleController.java:20] index page
+2016-07-09 21:33:04,226 DEBUG [http-nio-8080-exec-2] debug [SampleController.java:20] index page
+2016-07-09 21:35:46,745 DEBUG [main] debug [Application.java:32] Starting WEBAPP
