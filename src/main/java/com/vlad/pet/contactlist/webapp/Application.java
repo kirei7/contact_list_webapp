@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.ErrorPage;
@@ -24,7 +25,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 import java.util.concurrent.TimeUnit;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
 @Import(Config.class)
 public class Application extends SpringBootServletInitializer {
     private static final Logger logger = LoggerFactory.getLogger("debug");
