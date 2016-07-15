@@ -12,7 +12,7 @@
     <div th:switch="${#sets.isEmpty(contactList)}" class="col-sm-6">
         <div th:case="true" th:text="#{contacts.noContactsInList}"><h3></h3></div>
         <div th:case="*">
-            <div th:each="contact : ${contactList}" class="panel panel-default">
+            <div th:each="contact : ${contactList}" th:id="${contact.id}" class="panel panel-default">
                 <div class="panel-heading">
                     <strong th:text="${contact.firstName} + ' ' + ${contact.lastName}"></strong>
                 </div>
@@ -20,7 +20,8 @@
                     <p th:inline="text">[[${contact.email}]]</p>
                     <p th:inline="text">[[#{contact.mobileNum}]]: [[${contact.mobileNum}]]</p>
                     <p th:inline="text">[[#{contact.workNum}]]: [[${contact.workNum}]]</p>
-                    <form action="#" method="post" th:method="delete" th:action="@{contacts/}" th:object="${contact}">
+                    <!--/*call() is function defined in contacts.js*/-->
+                    <form th:id="'delete-form-' + ${contact.id}" action="javascript:void(null);" onsubmit="call(event)" method="post" th:method="delete"   th:object="${contact}">
                         <input type="hidden" name="id" th:value="*{id}"/>
                         <input type="submit" th:value="#{action.delete}"/>
                     </form>
@@ -56,5 +57,6 @@
         </form>
     </div>
 </div>
+<script th:fragment="custom-script"  th:src="@{resources/js/basic/contacts.js}" src="resources/js/basic/contacts.js"></script>
 </body>
 </html>
