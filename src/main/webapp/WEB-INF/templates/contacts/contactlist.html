@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layouts/layout-basic :: page">
+<head>
+    <title th:text="#{title.home}" th:fragment="title">main page</title>
+</head>
+<body>
+<div th:fragment="content" class="row">
+    <h4 th:if="${addedContact}" th:text="#{addContact.added(${addedContact.firstName}, ${addedContact.LastName})}"></h4>
+    <!--/*<h4 th:if="${deletedContact}" th:text="#{deleteContact.deleted(${deletedContact.firstName}, ${deletedContact.LastName})}"></h4>*/-->
+    <div th:switch="${#sets.isEmpty(contactList)}" class="col-sm-6">
+        <div th:case="true" th:text="#{contacts.noContactsInList}"><h3></h3></div>
+        <div th:case="*">
+            <div th:each="contact : ${contactList}" class="panel panel-default">
+                <div class="panel-heading">
+                    <strong th:text="${contact.firstName} + ' ' + ${contact.lastName}"></strong>
+                </div>
+                <div class="panel-body">
+                    <p th:inline="text">[[${contact.email}]]</p>
+                    <p th:inline="text">[[#{contact.mobileNum}]]: [[${contact.mobileNum}]]</p>
+                    <p th:inline="text">[[#{contact.workNum}]]: [[${contact.workNum}]]</p>
+                    <form action="#" method="post" th:method="delete" th:action="@{contacts/}" th:object="${contact}">
+                        <input type="hidden" name="id" th:value="*{id}"/>
+                        <input type="submit" th:value="#{action.delete}"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--add contact form-->
+    <div class="col-sm-4 col-sm-offset-2 thumbnail add-contact">
+        <h3 th:text="#{contact.msg.addNew}">add new contact</h3>
+        <form action="#" method="post" th:action="@{/contacts}" th:object="${contact}">
+            <div class="form-group">
+                <label for="firstName" th:text="#{contact.firstName}">First name:</label>
+                <input type="text" th:field="*{firstName}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="lastName" th:text="#{contact.lastName}">Last Name:</label>
+                <input type="text" th:field="*{lastName}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="email" th:text="#{contact.email}">E-mail:</label>
+                <input type="email" th:field="*{email}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="mobileNum" th:text="#{contact.mobileNum}">Mobile number:</label>
+                <input type="mobileNum" th:field="*{mobileNum}" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="workNum" th:text="#{contact.workNum}">Work number:</label>
+                <input type="workNum" th:field="*{workNum}" class="form-control"/>
+            </div>
+            <input type="submit"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
