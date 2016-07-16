@@ -1,0 +1,17 @@
+<div th:fragment="contactList">
+    <div th:each="contact : ${contactList}" th:id="${contact.id}" class="panel panel-default">
+        <div class="panel-heading">
+            <strong th:text="${contact.firstName} + ' ' + ${contact.lastName}"></strong>
+        </div>
+        <div class="panel-body">
+            <p th:inline="text">[[${contact.email}]]</p>
+            <p th:inline="text">[[#{contact.mobileNum}]]: [[${contact.mobileNum}]]</p>
+            <p th:inline="text">[[#{contact.workNum}]]: [[${contact.workNum}]]</p>
+            <!--/*call() is function defined in contacts.js*/-->
+            <form action="javascript:void(null);" onsubmit="deleteContact(event)" method="post" th:method="delete"   th:object="${contact}">
+                <input type="hidden" name="id" th:value="*{id}"/>
+                <input type="submit" th:value="#{action.delete}"/>
+            </form>
+        </div>
+    </div>
+</div>

@@ -31,7 +31,7 @@ public class RootController {
         return "register";
     }
 
-    @RequestMapping(value = "contacts", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getContacts(Model model) {
         User user = getUser();
         model.addAttribute(

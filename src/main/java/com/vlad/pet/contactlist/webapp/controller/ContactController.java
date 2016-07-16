@@ -27,10 +27,15 @@ public class ContactController {
     private UserService userService;
     @Autowired ContactService contactService;
 
+    @RequestMapping(method = RequestMethod.GET)
+    public Set<Contact> getAllContacts() {
+        return manager.getAllUserContacts(
+                getUser()
+        );
+    }
     @RequestMapping(method = RequestMethod.POST)
     public Contact addContact(@ModelAttribute Contact contact, Model model) {
         return manager.addContactToUserList(getUser(), contact);
-
     }
     @RequestMapping(method = RequestMethod.DELETE)
     public Contact deleteContact(@ModelAttribute Contact contact, Model model) {
