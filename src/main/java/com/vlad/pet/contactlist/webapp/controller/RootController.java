@@ -2,9 +2,10 @@ package com.vlad.pet.contactlist.webapp.controller;
 
 import com.vlad.pet.contactlist.model.ApplicationManager;
 import com.vlad.pet.contactlist.model.Contact;
-import com.vlad.pet.contactlist.model.User;
-import com.vlad.pet.contactlist.model.UserForm;
+import com.vlad.pet.contactlist.model.user.User;
+import com.vlad.pet.contactlist.model.user.UserForm;
 import com.vlad.pet.contactlist.model.service.UserService;
+import com.vlad.pet.contactlist.webapp.util.UserInstanceProvider;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ public class RootController {
     private ApplicationManager manager;
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserInstanceProvider userInstanceProvider;
 
     @RequestMapping("register")
     public String registerUserForm(Model model) {
@@ -46,6 +49,6 @@ public class RootController {
     }
 
     private User getUser() {
-        return userService.findByNickName("vlad12");
+        return userInstanceProvider.getUser();
     }
 }

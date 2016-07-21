@@ -3,9 +3,10 @@ package com.vlad.pet.contactlist.webapp.controller;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.vlad.pet.contactlist.model.ApplicationManager;
 import com.vlad.pet.contactlist.model.Contact;
-import com.vlad.pet.contactlist.model.User;
+import com.vlad.pet.contactlist.model.user.User;
 import com.vlad.pet.contactlist.model.service.ContactService;
 import com.vlad.pet.contactlist.model.service.UserService;
+import com.vlad.pet.contactlist.webapp.util.UserInstanceProvider;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,8 @@ public class ContactController {
     @Autowired
     private UserService userService;
     @Autowired ContactService contactService;
+    @Autowired
+    private UserInstanceProvider userInstanceProvider;
 
     @RequestMapping(method = RequestMethod.GET)
     public Set<Contact> getAllContacts() {
@@ -39,6 +42,7 @@ public class ContactController {
     }
     @RequestMapping(method = RequestMethod.DELETE)
     public Contact deleteContact(@ModelAttribute Contact contact, Model model) {
+        logger.debug(getUser());
         return manager.removeContactFromUserList(
                 getUser(),
                 contactService.findById(contact.getId())
@@ -46,6 +50,6 @@ public class ContactController {
     }
 
     private User getUser() {
-        return userService.findByNickName("vlad12");
+        return userInstanceProvider.getUser();
     }
 }

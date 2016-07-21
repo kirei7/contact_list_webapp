@@ -1,8 +1,8 @@
 package com.vlad.pet.contactlist.webapp.controller;
 
 import com.vlad.pet.contactlist.model.ApplicationManager;
-import com.vlad.pet.contactlist.model.User;
-import com.vlad.pet.contactlist.model.UserForm;
+import com.vlad.pet.contactlist.model.user.User;
+import com.vlad.pet.contactlist.model.user.UserForm;
 import com.vlad.pet.contactlist.model.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

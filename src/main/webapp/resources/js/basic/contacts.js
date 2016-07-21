@@ -14,6 +14,11 @@
             var target = $('#delete-info');
             infoBlock(target, obj);
             $('#' + obj.id).remove();
+            if ($("#contactListContainer").children().length < 1) {
+            target = $("#contactListContainer");
+                        loadData(target);
+            }
+
           },
           error:  function(xhr, str){
 	    alert('Error occurred: ' + xhr.responseCode);
@@ -79,14 +84,20 @@
     function fillContactList() {
         var target = $("#contactListContainer");
         target.empty();
+        loadData(target);
+    }
+
+    //loads contacts content into
+    //the 'target' element
+    function loadData(target) {
         $.ajax({
-                  type: 'GET',
-                  url: 'util/preparedContactList',
-                  success: function(data) {
-                    target.append(data);
-                  },
-                  error:  function(xhr, str){
-                alert('Error occurred: ' + xhr.responseCode);
-                  }
-                });
+              type: 'GET',
+              url: 'util/preparedContactList',
+              success: function(data) {
+                target.append(data);
+              },
+              error:  function(xhr, str){
+            alert('Error occurred: ' + xhr.responseCode);
+              }
+            });
     }

@@ -23,12 +23,13 @@
     </div>
 
     <!--/*<h4 th:if="${deletedContact}" th:text="#{deleteContact.deleted(${deletedContact.firstName}, ${deletedContact.LastName})}"></h4>*/-->
-    <div th:switch="${#sets.isEmpty(contactList)}" class="col-sm-6">
+    <!--<div th:switch="${#sets.isEmpty(contactList)}" class="col-sm-6">
         <div th:case="true" th:text="#{contacts.noContactsInList}"><h3></h3></div>
         <div th:case="*" id="contactListContainer">
             <div th:include="contacts/preparedContactList :: contactList"></div>
         </div>
-    </div>
+    </div>-->
+    <div th:include="contacts/preparedContactList :: contactList" id="contactListContainer" class="col-sm-6"></div>
     <!--add contact form-->
     <div class="col-sm-4 col-sm-offset-2  add-contact">
         <div class="panel panel-default">
