@@ -30,7 +30,6 @@ import java.util.concurrent.TimeUnit;
 public class Application extends SpringBootServletInitializer {
     private static final Logger logger = LoggerFactory.getLogger("debug");
     public static void main(final String[] args) {
-        logger.debug("Starting WEBAPP");
         SpringApplication.run(Application.class, args);
     }
     //overrides the configure() method to point to itself, so Spring can find the main configuration.

@@ -13,12 +13,16 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+import org.thymeleaf.dialect.IDialect;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolver;
 
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 @Configuration
 @ImportResource("classpath:META-INF/spring/application-context.xml")
@@ -46,6 +50,10 @@ public class Config extends WebMvcConfigurerAdapter {
     @Bean
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        Set<IDialect> dialects = new HashSet<IDialect>();
+        dialects.add(springSecurityDialect());
+
+        templateEngine.setAdditionalDialects(dialects);
         templateEngine.setTemplateResolver(templateResolver());
         return templateEngine;
     }
@@ -58,7 +66,11 @@ public class Config extends WebMvcConfigurerAdapter {
         viewResolver.setOrder(1);
         return viewResolver;
     }
-
+    @Bean
+    public SpringSecurityDialect springSecurityDialect() {
+        SpringSecurityDialect dialect = new SpringSecurityDialect();
+        return dialect;
+    }
     //messages and locale
     @Bean
     public LocaleResolver localeResolver() {

@@ -9,6 +9,8 @@ import com.vlad.pet.contactlist.model.service.UserService;
 import com.vlad.pet.contactlist.webapp.util.UserInstanceProvider;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +40,10 @@ public class ContactController {
     }
     @RequestMapping(method = RequestMethod.POST)
     public Contact addContact(@ModelAttribute Contact contact, Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        logger.debug(name);
+        logger.debug(12);
         return manager.addContactToUserList(getUser(), contact);
     }
     @RequestMapping(method = RequestMethod.DELETE)

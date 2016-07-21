@@ -4,7 +4,7 @@
         <ol class="breadcrumb h3">
             <li ><a href="#" th:text="#{title.home}" th:href="@{/}">Contacts</a></li>
             <li><a href="#" th:text="#{title.register}" th:href="@{/register}">Register</a></li>
-            <li><a href="#" th:text="#{title.logout}" th:href="@{/login?logout}">Logout</a></li>
+            <li th:if="${#httpServletRequest.remoteUser != null}"><a href="#" th:text="#{title.logout}" th:href="@{/logout}">Logout</a></li>
             <span class="pull-right">
                 <a href="#" th:text="#{lang.uk}" th:href="@{__${#httpServletRequest.requestURI}__(lang=uk)}">uk</a>
                 <a href="#" th:text="#{lang.en}" th:href="@{__${#httpServletRequest.requestURI}__(lang=en)}">en</a>
