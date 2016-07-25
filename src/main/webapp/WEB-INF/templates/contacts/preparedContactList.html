@@ -9,8 +9,12 @@
                 </div>
                 <div class="panel-body">
                     <p th:inline="text">[[${contact.email}]]</p>
-                    <p th:inline="text">[[#{contact.mobileNum}]]: [[${contact.mobileNum}]]</p>
-                    <p th:inline="text">[[#{contact.workNum}]]: [[${contact.workNum}]]</p>
+                    <p th:inline="text">[[#{contact.mobileNum}]]:
+                        <span th:text="${contact.mobileNum}?: ' '"></span>
+                    </p>
+                    <p th:inline="text">[[#{contact.workNum}]]:
+                        <span th:text="${contact.workNum}?: ' '"></span>
+                    </p>
                     <!--/*call() is function defined in contacts.js*/-->
                     <form action="javascript:void(null);" onsubmit="deleteContact(event)" method="post" th:method="delete"   th:object="${contact}">
                         <input type="hidden" name="id" th:value="*{id}"/>

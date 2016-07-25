@@ -40,10 +40,7 @@ public class ContactController {
     }
     @RequestMapping(method = RequestMethod.POST)
     public Contact addContact(@ModelAttribute Contact contact, Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String name = auth.getName();
-        logger.debug(name);
-        logger.debug(12);
+        logger.debug(contact.toString());
         return manager.addContactToUserList(getUser(), contact);
     }
     @RequestMapping(method = RequestMethod.DELETE)

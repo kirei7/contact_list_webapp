@@ -16,3 +16,12 @@
 2016-07-24 10:31:08,732 DEBUG [http-nio-8080-exec-7] debug [RootController.java:40] class org.springframework.context.support.ResourceBundleMessageSource
 2016-07-24 10:31:10,460 DEBUG [http-nio-8080-exec-6] debug [RootController.java:40] class org.springframework.context.support.ResourceBundleMessageSource
 2016-07-24 10:31:11,763 DEBUG [http-nio-8080-exec-2] debug [RootController.java:40] class org.springframework.context.support.ResourceBundleMessageSource
+2016-07-25 08:48:45,706 DEBUG [http-nio-8080-exec-4] debug [RootController.java:40] class org.springframework.context.support.ResourceBundleMessageSource
+2016-07-25 09:01:17,028 DEBUG [http-nio-8080-exec-5] debug [ContactController.java:45] 11111
+2016-07-25 09:01:17,029 DEBUG [http-nio-8080-exec-5] debug [ContactController.java:46] 12
+2016-07-25 09:13:34,877 DEBUG [http-nio-8080-exec-3] debug [ContactController.java:45] 11111
+2016-07-25 09:13:34,879 DEBUG [http-nio-8080-exec-3] debug [ContactController.java:46] 12
+2016-07-25 09:18:03,130 DEBUG [http-nio-8080-exec-3] debug [ContactController.java:48] User{nickName='11111', id=1}
+2016-07-25 09:18:03,963 DEBUG [http-nio-8080-exec-4] debug [ContactController.java:48] User{nickName='11111', id=1}
+2016-07-25 09:18:15,916 DEBUG [http-nio-8080-exec-5] debug [ContactController.java:43] Contact{id=null, firstName='4546545', lastName='45454545', email='', mobileNum='null', workNum='null'}
+2016-07-25 09:28:05,580 DEBUG [http-nio-8080-exec-10] debug [ContactController.java:43] Contact{id=null, firstName='вавава', lastName='', email='', mobileNum='121212', workNum='12121'}
