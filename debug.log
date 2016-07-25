@@ -1,48 +1,18 @@
-
-2016-07-21 21:02:29,174 DEBUG [http-nio-8080-exec-8] debug [RootController.java:44] User{nickName='11111', id=1}
-2016-07-21 21:02:29,176 DEBUG [http-nio-8080-exec-8] debug [RootController.java:47] 11111
-2016-07-21 21:05:03,990 DEBUG [http-nio-8080-exec-8] debug [RootController.java:44] User{nickName='11111', id=1}
-2016-07-21 21:05:03,992 DEBUG [http-nio-8080-exec-8] debug [RootController.java:47] 11111
-2016-07-21 21:05:03,992 DEBUG [http-nio-8080-exec-8] debug [RootController.java:48] 12
-2016-07-21 21:05:11,145 DEBUG [http-nio-8080-exec-3] debug [RootController.java:44] User{nickName='11111', id=1}
-2016-07-21 21:05:11,146 DEBUG [http-nio-8080-exec-3] debug [RootController.java:47] 11111
-2016-07-21 21:05:11,147 DEBUG [http-nio-8080-exec-3] debug [RootController.java:48] 12
-2016-07-21 21:05:18,492 DEBUG [http-nio-8080-exec-4] debug [RootController.java:44] User{nickName='11111', id=1}
-2016-07-21 21:05:18,493 DEBUG [http-nio-8080-exec-4] debug [RootController.java:47] 11111
-2016-07-21 21:05:18,493 DEBUG [http-nio-8080-exec-4] debug [RootController.java:48] 12
-2016-07-21 21:05:27,364 DEBUG [http-nio-8080-exec-9] debug [RootController.java:44] User{nickName='11111', id=1}
-2016-07-21 21:05:27,365 DEBUG [http-nio-8080-exec-9] debug [RootController.java:47] 11111
-2016-07-21 21:05:27,365 DEBUG [http-nio-8080-exec-9] debug [RootController.java:48] 12
-2016-07-21 21:05:43,112 DEBUG [http-nio-8080-exec-8] debug [RootController.java:44] User{nickName='11111', id=1}
-2016-07-21 21:05:43,114 DEBUG [http-nio-8080-exec-8] debug [RootController.java:47] 11111
-2016-07-21 21:05:43,114 DEBUG [http-nio-8080-exec-8] debug [RootController.java:48] 12
-2016-07-21 21:06:02,112 DEBUG [http-nio-8080-exec-2] debug [RootController.java:44] User{nickName='11111', id=1}
-2016-07-21 21:06:02,115 DEBUG [http-nio-8080-exec-2] debug [RootController.java:47] 11111
-2016-07-21 21:06:02,115 DEBUG [http-nio-8080-exec-2] debug [RootController.java:48] 12
-2016-07-21 21:30:04,258 DEBUG [http-nio-8080-exec-8] debug [RootController.java:47] User{nickName='11111', id=1}
-2016-07-21 21:30:04,260 DEBUG [http-nio-8080-exec-8] debug [RootController.java:50] 11111
-2016-07-21 21:30:04,260 DEBUG [http-nio-8080-exec-8] debug [RootController.java:51] 12
-2016-07-21 21:36:49,199 DEBUG [http-nio-8080-exec-1] debug [RootController.java:47] User{nickName='11111', id=1}
-2016-07-21 21:36:49,201 DEBUG [http-nio-8080-exec-1] debug [RootController.java:50] 11111
-2016-07-21 21:36:49,202 DEBUG [http-nio-8080-exec-1] debug [RootController.java:51] 12
-2016-07-21 21:45:01,936 DEBUG [http-nio-8080-exec-8] debug [RootController.java:47] User{nickName='11111', id=1}
-2016-07-21 21:45:01,939 DEBUG [http-nio-8080-exec-8] debug [RootController.java:50] 11111
-2016-07-21 21:45:01,939 DEBUG [http-nio-8080-exec-8] debug [RootController.java:51] 12
-2016-07-21 21:52:06,396 DEBUG [http-nio-8080-exec-4] debug [RootController.java:47] User{nickName='11111', id=1}
-2016-07-21 21:52:06,398 DEBUG [http-nio-8080-exec-4] debug [RootController.java:50] 11111
-2016-07-21 21:52:06,398 DEBUG [http-nio-8080-exec-4] debug [RootController.java:51] 12
-2016-07-21 21:52:09,845 DEBUG [http-nio-8080-exec-1] debug [RootController.java:47] User{nickName='11111', id=1}
-2016-07-21 21:52:09,846 DEBUG [http-nio-8080-exec-1] debug [RootController.java:50] 11111
-2016-07-21 21:52:09,846 DEBUG [http-nio-8080-exec-1] debug [RootController.java:51] 12
-2016-07-21 21:59:24,271 DEBUG [http-nio-8080-exec-8] debug [RootController.java:47] User{nickName='11111', id=1}
-2016-07-21 21:59:24,273 DEBUG [http-nio-8080-exec-8] debug [RootController.java:50] 11111
-2016-07-21 21:59:24,273 DEBUG [http-nio-8080-exec-8] debug [RootController.java:51] 12
-2016-07-21 22:01:52,379 DEBUG [http-nio-8080-exec-9] debug [RootController.java:47] User{nickName='11111', id=1}
-2016-07-21 22:01:52,381 DEBUG [http-nio-8080-exec-9] debug [RootController.java:50] 11111
-2016-07-21 22:01:52,382 DEBUG [http-nio-8080-exec-9] debug [RootController.java:51] 12
-2016-07-21 22:07:38,741 DEBUG [http-nio-8080-exec-7] debug [RootController.java:47] User{nickName='11111', id=1}
-2016-07-21 22:07:38,743 DEBUG [http-nio-8080-exec-7] debug [RootController.java:50] 11111
-2016-07-21 22:07:38,744 DEBUG [http-nio-8080-exec-7] debug [RootController.java:51] 12
-2016-07-21 22:08:47,639 DEBUG [http-nio-8080-exec-8] debug [RootController.java:47] User{nickName='11111', id=1}
-2016-07-21 22:08:47,641 DEBUG [http-nio-8080-exec-8] debug [RootController.java:50] 11111
-2016-07-21 22:08:47,641 DEBUG [http-nio-8080-exec-8] debug [RootController.java:51] 12
+2016-07-24 08:31:11,087 DEBUG [http-nio-8080-exec-8] debug [RootController.java:39] en_US
+2016-07-24 08:31:32,388 DEBUG [http-nio-8080-exec-5] debug [RootController.java:39] uk
+2016-07-24 08:33:09,319 DEBUG [http-nio-8080-exec-1] debug [RootController.java:42] class org.springframework.context.support.DelegatingMessageSource
+2016-07-24 08:45:13,376 DEBUG [http-nio-8080-exec-1] debug [RootController.java:42] class org.springframework.context.support.ReloadableResourceBundleMessageSource
+2016-07-24 08:52:13,672 DEBUG [http-nio-8080-exec-9] debug [RootController.java:55] User{nickName='11111', id=1}
+2016-07-24 08:52:13,674 DEBUG [http-nio-8080-exec-9] debug [RootController.java:58] 11111
+2016-07-24 08:52:13,674 DEBUG [http-nio-8080-exec-9] debug [RootController.java:59] 12
+2016-07-24 08:52:40,122 DEBUG [http-nio-8080-exec-2] debug [RootController.java:55] User{nickName='11111', id=1}
+2016-07-24 08:52:40,123 DEBUG [http-nio-8080-exec-2] debug [RootController.java:58] 11111
+2016-07-24 08:52:40,123 DEBUG [http-nio-8080-exec-2] debug [RootController.java:59] 12
+2016-07-24 08:52:50,651 DEBUG [http-nio-8080-exec-7] debug [RootController.java:55] User{nickName='11111', id=1}
+2016-07-24 08:52:50,652 DEBUG [http-nio-8080-exec-7] debug [RootController.java:58] 11111
+2016-07-24 08:52:50,652 DEBUG [http-nio-8080-exec-7] debug [RootController.java:59] 12
+2016-07-24 09:34:26,453 DEBUG [http-nio-8080-exec-7] debug [RootController.java:40] class org.springframework.context.support.ResourceBundleMessageSource
+2016-07-24 10:31:06,647 DEBUG [http-nio-8080-exec-1] debug [RootController.java:40] class org.springframework.context.support.ResourceBundleMessageSource
+2016-07-24 10:31:08,732 DEBUG [http-nio-8080-exec-7] debug [RootController.java:40] class org.springframework.context.support.ResourceBundleMessageSource
+2016-07-24 10:31:10,460 DEBUG [http-nio-8080-exec-6] debug [RootController.java:40] class org.springframework.context.support.ResourceBundleMessageSource
+2016-07-24 10:31:11,763 DEBUG [http-nio-8080-exec-2] debug [RootController.java:40] class org.springframework.context.support.ResourceBundleMessageSource

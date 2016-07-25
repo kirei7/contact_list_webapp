@@ -72,6 +72,10 @@ public class Config extends WebMvcConfigurerAdapter {
         return dialect;
     }
     //messages and locale
+    /*@Bean
+    public ResourceBundleMessageSource messageSource() {
+        return new ResourceBundleMessageSource();
+    }*/
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();

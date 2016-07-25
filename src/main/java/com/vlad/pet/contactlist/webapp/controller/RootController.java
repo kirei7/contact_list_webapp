@@ -8,6 +8,7 @@ import com.vlad.pet.contactlist.model.service.UserService;
 import com.vlad.pet.contactlist.webapp.util.UserInstanceProvider;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -31,9 +32,12 @@ public class RootController {
     private UserService userService;
     @Autowired
     private UserInstanceProvider userInstanceProvider;
+    @Autowired
+    private MessageSource messageSource;
 
     @RequestMapping("register")
     public String registerUserForm(Model model) {
+        logger.debug(messageSource.getClass());
         model.addAttribute(
                 "userForm",
                 new UserForm()
@@ -44,11 +48,6 @@ public class RootController {
     @RequestMapping(method = RequestMethod.GET)
     public String getContacts(Model model) {
         User user = getUser();
-        logger.debug(user);
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String name = auth.getName();
-        logger.debug(name);
-        logger.debug(12);
         model.addAttribute(
                 "contactList",
                 manager.getAllUserContacts(user)
