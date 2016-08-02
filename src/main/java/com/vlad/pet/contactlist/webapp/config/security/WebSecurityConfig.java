@@ -25,8 +25,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf()
                 .disable()
             .authorizeRequests()
-                .antMatchers("/resources/**", "/register", "/users/**", "/contacts/*").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/resources/**", "/register", "/users/**", "/contacts/*", "/login/**")
+                .permitAll()
+                .anyRequest().fullyAuthenticated()
                 .and()
             .formLogin()
                 .loginPage("/login")
@@ -43,10 +44,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
-    /*@Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("password").roles(Roles.TEST.toString());
-    }*/
 }

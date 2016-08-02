@@ -72,10 +72,6 @@ public class Config extends WebMvcConfigurerAdapter {
         return dialect;
     }
     //messages and locale
-    /*@Bean
-    public ResourceBundleMessageSource messageSource() {
-        return new ResourceBundleMessageSource();
-    }*/
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
@@ -90,7 +86,7 @@ public class Config extends WebMvcConfigurerAdapter {
     }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(localeChangeInterceptor());
+        registry.addInterceptor(localeChangeInterceptor()).addPathPatterns("/**");
     }
     //messages and locale END
 }
