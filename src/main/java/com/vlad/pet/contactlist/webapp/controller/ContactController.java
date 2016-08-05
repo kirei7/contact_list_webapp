@@ -22,13 +22,14 @@ import java.util.Set;
 public class ContactController {
     //directory with contact's templates
     private String path = "contacts/";
-
     private final static Logger logger = Logger.getLogger("debug");
+
     @Autowired
     private ApplicationManager manager;
     @Autowired
     private UserService userService;
-    @Autowired ContactService contactService;
+    @Autowired
+    ContactService contactService;
     @Autowired
     private UserInstanceProvider userInstanceProvider;
 
@@ -40,12 +41,10 @@ public class ContactController {
     }
     @RequestMapping(method = RequestMethod.POST)
     public Contact addContact(@ModelAttribute Contact contact, Model model) {
-        logger.debug(contact.toString());
         return manager.addContactToUserList(getUser(), contact);
     }
     @RequestMapping(method = RequestMethod.DELETE)
     public Contact deleteContact(@ModelAttribute Contact contact, Model model) {
-        logger.debug(getUser());
         return manager.removeContactFromUserList(
                 getUser(),
                 contactService.findById(contact.getId())

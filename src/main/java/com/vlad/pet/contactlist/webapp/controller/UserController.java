@@ -9,11 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.util.Locale;
 
 @Controller
@@ -21,12 +23,13 @@ import java.util.Locale;
 public class UserController {
     //directory with user's templates
     private String path = "users/";
-
     private final static Logger logger = Logger.getLogger("debug");
+
     @Autowired
     private ApplicationManager manager;
     @Autowired
     private UserService userService;
+
 
     @RequestMapping(value = "/{id}")
     public String userInfo(@PathVariable Long id, Model model) {
@@ -37,7 +40,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String registerUserAct(@ModelAttribute UserForm userForm, Model model) {
+    public String registerUserAct(@ModelAttribute @Valid UserForm userForm, BindingResult result, Model model) {
         User registered = manager.registerUser(userForm);
         model.addAttribute("user", registered);
         return path + "register-success";
