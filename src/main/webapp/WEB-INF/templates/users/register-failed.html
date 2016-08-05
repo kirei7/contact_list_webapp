@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layouts/layout-basic :: page">
+<head>
+    <title th:text="#{title.registerFailed}" th:fragment="title">Registration failed</title>
+</head>
+<body>
+<div th:fragment="content" class="row">
+    <h1>Register failed!</h1>
+</div>
+<script th:fragment="custom-script"  th:src="" src=""></script>
+</body>
+</html>

@@ -1,10 +1,12 @@
 package com.vlad.pet.contactlist.webapp.util;
 
 import com.vlad.pet.contactlist.model.user.UserForm;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+@Component
 public class UserFormValidator implements Validator {
 
     private final int
