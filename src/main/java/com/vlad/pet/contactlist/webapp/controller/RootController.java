@@ -37,7 +37,6 @@ public class RootController {
 
     @RequestMapping("register")
     public String registerUserForm(Model model) {
-        logger.debug(messageSource.getClass());
         model.addAttribute(
                 "userForm",
                 new UserForm()

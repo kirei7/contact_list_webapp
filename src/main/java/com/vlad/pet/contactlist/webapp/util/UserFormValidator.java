@@ -1,6 +1,7 @@
 package com.vlad.pet.contactlist.webapp.util;
 
 import com.vlad.pet.contactlist.model.user.UserForm;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -8,6 +9,8 @@ import org.springframework.validation.Validator;
 
 @Component
 public class UserFormValidator implements Validator {
+
+    private final static Logger logger = Logger.getLogger("debug");
 
     private final int
     NICKNAME_MIN_LENGTH = 5,
@@ -23,17 +26,24 @@ public class UserFormValidator implements Validator {
 
     @Override
     public void validate(Object obj, Errors errors) {
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nickName", "register.nickName.required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "register.password.required");
-
         UserForm userForm = (UserForm) obj;
-        int nickNameL = userForm.getNickName().length(),
-                passwordL = userForm.getPassword().length();
-        if (nickNameL < NICKNAME_MIN_LENGTH | nickNameL > NICKNAME_MAX_LENGTH) {
-            errors.reject("register.nickName.length", "Nickname must contain at least 5 characters, but not more than 16");
+        String name = userForm.getNickName(),
+                pass = userForm.getPassword();
+        if (name == null || name.isEmpty()) {
+            errors.rejectValue("nickName","register.nickName.required");
+            return;
         }
-        if (nickNameL < PASSWORD_MIN_LENGTH | nickNameL > PASSWORD_MAX_LENGTH) {
-            errors.reject("register.password.length", "Password must contain at least 5 characters, but not more than 16");
+        if (pass == null || pass.isEmpty()) {
+            errors.rejectValue("password","register.password.required");
+            return;
+        }
+        int nickNameL = name.length(),
+                passwordL = pass.length();
+        if (nickNameL < NICKNAME_MIN_LENGTH | nickNameL > NICKNAME_MAX_LENGTH) {
+            errors.rejectValue("nickName","register.nickName.length", "Nickname must contain at least 5 characters, but not more than 16");
+        }
+        if (passwordL < PASSWORD_MIN_LENGTH | passwordL > PASSWORD_MAX_LENGTH) {
+            errors.rejectValue("password","register.password.length", "Password must contain at least 5 characters, but not more than 16");
         }
     }
 }

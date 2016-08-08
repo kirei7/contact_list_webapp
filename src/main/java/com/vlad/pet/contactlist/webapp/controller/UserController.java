@@ -10,14 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
-import java.util.Locale;
 
 @Controller
 @RequestMapping(value = "/users")
@@ -42,9 +42,11 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String registerUserAct(@ModelAttribute @Validated UserForm userForm, BindingResult result, Model model) {
+    public String registerUserAct(@Valid @ModelAttribute UserForm userForm, BindingResult result, Model model) {
+        if (!validator.supports(userForm.getClass())) return path + "register-failed";
+        validator.validate(userForm, result);
         if (result.hasErrors()) {
-            logger.debug(result.getAllErrors());
+            for (FieldError error : result.getFieldErrors()) logger.debug(error.getCode());
             return path + "register-failed";
         }
         User registered = manager.registerUser(userForm);

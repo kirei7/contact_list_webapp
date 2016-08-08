@@ -2,23 +2,23 @@ package com.vlad.pet.contactlist.webapp;
 
 import com.vlad.pet.contactlist.model.user.UserForm;
 import com.vlad.pet.contactlist.webapp.util.UserFormValidator;
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.atLeast;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 public class UserFormValidatorTest {
+    private static Logger logger = Logger.getLogger("debug");
+
     private UserFormValidator validator;
     private Errors errors;
 
@@ -31,14 +31,20 @@ public class UserFormValidatorTest {
     @Test
     public void emptyFieldsRejected() {
         validator.validate(new UserForm().withNickName("").withPassword("dsdsds3"), errors);
-        verify(errors, atLeast(1)).rejectValue(anyString(), anyString(), anyObject(), anyObject());
+        validator.validate(new UserForm().withNickName("dsdsds3").withPassword(""), errors);
+        validator.validate(new UserForm().withNickName("").withPassword(""), errors);
+        validator.validate(new UserForm().withNickName(null).withPassword("dsdsds3"), errors);
+        validator.validate(new UserForm().withNickName("dsdsds3").withPassword(null), errors);
+        //every time invalid value must be rejected once
+        verify(errors, times(5)).rejectValue(anyString(), anyString());
     }
     @Test
     public void callToRejectIfFieldsIsInvalid() {
-        for (UserForm form : getInvalidUserForms()) {
+        List<UserForm> forms = getInvalidUserForms();
+        for (UserForm form : forms) {
             validator.validate(form, errors);
-            verify(errors, atLeast(1)).reject(anyString(), anyString());
         }
+        verify(errors, times(forms.size())).rejectValue(anyString(), anyString(), anyString());
     }
 
     private List<UserForm> getInvalidUserForms() {
