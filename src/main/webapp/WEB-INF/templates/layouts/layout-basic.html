@@ -13,15 +13,14 @@
 
     <!--<link href="resources/css/bootstrap-responsive.min.css" rel="stylesheet"
           th:href="@{resources/css/bootstrap-responsive.min.css}" />-->
-
+    <script src="resources/js/jquery-2.1.1.js"
+            th:src="@{resources/js/jquery-2.1.1.js}"></script>
 </head>
 <body>
 <div class="container">
     <div th:replace="layouts/fragments-basic :: nav"></div>
     <div th:replace="this :: content"></div>
 </div>
-<script src="resources/js/jquery-2.1.1.js"
-        th:src="@{resources/js/jquery-2.1.1.js}"></script>
 <script src="resources/js/bootstrap.min.js"
         th:src="@{resources/js/bootstrap.min.js}"></script>
 <script th:replace="this :: custom-script"></script>

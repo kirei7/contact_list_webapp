@@ -37,33 +37,40 @@
                 <h3 th:text="#{contact.msg.addNew}">add new contact</h3>
             </div>
             <div class="panel-body">
-                <form action="javascript:void(null);" onsubmit="addContact(event)" method="post" th:object="${contact}">
+                <form action="javascript:void(null);"
+                      onsubmit="addContact(event)"
+                      method="post" th:object="${contact}"
+                      id="add-contact">
                     <div class="form-group">
                         <label for="firstName" th:text="#{contact.firstName}">First name:</label>
-                        <input type="text" th:field="*{firstName}" class="form-control"  maxlength="16" required/>
+                        <input type="text" th:field="*{firstName}" class="form-control"
+                               maxlength="64"  required=""/>
                     </div>
                     <div class="form-group">
                         <label for="lastName" th:text="#{contact.lastName}">Last Name:</label>
-                        <input type="text" th:field="*{lastName}" class="form-control"/>
+                        <input type="text" th:field="*{lastName}" class="form-control"
+                               maxlength="64" />
                     </div>
                     <div class="form-group">
                         <label for="email" th:text="#{contact.email}">E-mail:</label>
-                        <input type="email" th:field="*{email}" class="form-control"/>
+                        <input type="email" th:field="*{email}" class="form-control"
+                               maxlength="254"/>
                     </div>
                     <div class="form-group">
                         <label for="mobileNum" th:text="#{contact.mobileNum}">Mobile number:</label>
-                        <input type="number" th:field="*{mobileNum}" class="form-control"/>
+                        <input type="tel" th:field="*{mobileNum}" class="form-control"
+                                maxlength="32" />
                     </div>
                     <div class="form-group">
                         <label for="workNum" th:text="#{contact.workNum}">Work number:</label>
-                        <input type="number" th:field="*{workNum}" class="form-control"/>
+                        <input type="tel" th:field="*{workNum}" class="form-control"
+                                maxlength="32" />
                     </div>
                     <input type="submit"/>
                 </form>
             </div>
         </div>
     </div>
-
 </div>
 <script th:fragment="custom-script"  th:src="@{resources/js/basic/contacts.js}" src="resources/js/basic/contacts.js"></script>
 </body>
