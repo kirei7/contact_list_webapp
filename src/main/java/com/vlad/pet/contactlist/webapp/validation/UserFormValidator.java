@@ -1,4 +1,4 @@
-package com.vlad.pet.contactlist.webapp.util;
+package com.vlad.pet.contactlist.webapp.validation;
 
 import com.vlad.pet.contactlist.model.user.UserForm;
 import org.apache.log4j.Logger;

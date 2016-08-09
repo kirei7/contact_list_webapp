@@ -43,7 +43,12 @@
             refreshContactList();
           },
           error:  function(xhr, str){
-	    alert('Error occurred: ' + xhr.responseCode);
+          //here we pass the message code from response error to
+          //resolver, which returns 'up-to-locale', readable message
+          //example code: contact.firstName.required
+            resolveAndDisplayMessage(
+                    xhr.responseJSON.message
+                );
           }
         });
     }
@@ -95,6 +100,24 @@
               url: 'util/preparedContactList',
               success: function(data) {
                 target.append(data);
+              },
+              error:  function(xhr, str){
+            alert('Error occurred: ' + xhr.responseCode);
+              }
+            });
+    }
+
+    //helper function
+    //used in addContact()
+    //resolves the error message by
+    //its code
+    function resolveAndDisplayMessage(code) {
+        return $.ajax({
+              type: 'GET',
+              url: 'contacts/resolve-error',
+              data:{code:code},
+              success: function(data) {
+                alert(data);
               },
               error:  function(xhr, str){
             alert('Error occurred: ' + xhr.responseCode);

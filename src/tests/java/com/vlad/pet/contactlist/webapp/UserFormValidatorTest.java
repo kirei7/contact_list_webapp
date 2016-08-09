@@ -1,7 +1,7 @@
 package com.vlad.pet.contactlist.webapp;
 
 import com.vlad.pet.contactlist.model.user.UserForm;
-import com.vlad.pet.contactlist.webapp.util.UserFormValidator;
+import com.vlad.pet.contactlist.webapp.validation.UserFormValidator;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +11,6 @@ import org.springframework.validation.Errors;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 

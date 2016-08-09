@@ -40,7 +40,7 @@
                 <form action="javascript:void(null);" onsubmit="addContact(event)" method="post" th:object="${contact}">
                     <div class="form-group">
                         <label for="firstName" th:text="#{contact.firstName}">First name:</label>
-                        <input type="text" th:field="*{firstName}" class="form-control"/>
+                        <input type="text" th:field="*{firstName}" class="form-control"  maxlength="16" required/>
                     </div>
                     <div class="form-group">
                         <label for="lastName" th:text="#{contact.lastName}">Last Name:</label>
@@ -52,17 +52,18 @@
                     </div>
                     <div class="form-group">
                         <label for="mobileNum" th:text="#{contact.mobileNum}">Mobile number:</label>
-                        <input type="text" th:field="*{mobileNum}" class="form-control"/>
+                        <input type="number" th:field="*{mobileNum}" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="workNum" th:text="#{contact.workNum}">Work number:</label>
-                        <input type="text" th:field="*{workNum}" class="form-control"/>
+                        <input type="number" th:field="*{workNum}" class="form-control"/>
                     </div>
                     <input type="submit"/>
                 </form>
             </div>
         </div>
     </div>
+
 </div>
 <script th:fragment="custom-script"  th:src="@{resources/js/basic/contacts.js}" src="resources/js/basic/contacts.js"></script>
 </body>
