@@ -3,17 +3,25 @@
     <div th:switch="${#sets.isEmpty(contactList)}">
         <div th:case="true" th:text="#{contacts.noContactsInList}"><h3></h3></div>
         <div th:case="*" >
-            <div th:each="contact : ${contactList}" th:id="${contact.id}" class="panel panel-default">
+            <div th:each="contact : ${contactList}" th:id="${contact.id}" class="panel panel-default contact-wrapper">
                 <div class="panel-heading">
-                    <strong th:text="${contact.firstName} + ' ' + ${contact.lastName}"></strong>
+                    <strong th:text="${contact.firstName}" class="firstName"></strong>
+                    <strong th:text="${contact.lastName}" class="lastName"></strong>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary modal-btn pull-right"
+                            onclick="modalButtonClick(this)"
+                            data-toggle="modal" data-target="#myModal"
+                            th:attr="title=#{action.edit.contact.btn}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
                 </div>
                 <div class="panel-body">
-                    <p th:inline="text">[[${contact.email}]]</p>
-                    <p th:inline="text">[[#{contact.mobileNum}]]:
-                        <span th:text="${contact.mobileNum}?: ' '"></span>
+                    <p th:inline="text" class="email">[[${contact.email}]]</p>
+                    <p th:inline="text" >[[#{contact.mobileNum}]]:
+                        <span th:text="${contact.mobileNum}?: ' '" class="mobileNum"></span>
                     </p>
                     <p th:inline="text">[[#{contact.workNum}]]:
-                        <span th:text="${contact.workNum}?: ' '"></span>
+                        <span th:text="${contact.workNum}?: ' '" class="workNum"></span>
                     </p>
                     <!--/*call() is function defined in contacts.js*/-->
                     <form action="javascript:void(null);" onsubmit="deleteContact(event)" method="post" th:method="delete"   th:object="${contact}">

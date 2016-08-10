@@ -1,27 +1,23 @@
 package com.vlad.pet.contactlist.webapp.controller;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.vlad.pet.contactlist.model.ApplicationManager;
 import com.vlad.pet.contactlist.model.Contact;
 import com.vlad.pet.contactlist.model.user.User;
 import com.vlad.pet.contactlist.model.service.ContactService;
 import com.vlad.pet.contactlist.model.service.UserService;
+import com.vlad.pet.contactlist.model.util.ContactComparator;
 import com.vlad.pet.contactlist.webapp.util.UserInstanceProvider;
 import com.vlad.pet.contactlist.webapp.validation.ContactValidator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Locale;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = "/contacts")
@@ -44,10 +40,8 @@ public class ContactController {
     private MessageSource messageSource;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Set<Contact> getAllContacts() {
-        return manager.getAllUserContacts(
-                getUser()
-        );
+    public List<Contact> getAllContacts() {
+        return manager.getAllUserContacts(getUser());
     }
     @RequestMapping(method = RequestMethod.POST)
     public Contact addContact(@ModelAttribute Contact contact,
@@ -75,6 +69,13 @@ public class ContactController {
                 contactService.findById(contact.getId())
         );
     }
+    @RequestMapping(method = RequestMethod.PUT)
+    public Contact editContact(@ModelAttribute Contact contact, Model model) {
+        return manager.updateContactFromUserList(
+                contact
+        );
+    }
+
     @RequestMapping("/resolve-error")
     public String resolveErrorMsg(@RequestParam("code") String code, Locale loc) {
         logger.debug(code);

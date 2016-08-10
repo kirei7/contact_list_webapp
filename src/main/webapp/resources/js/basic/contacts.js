@@ -1,7 +1,6 @@
  	//for info message displayed when
  	//contact have been deleted
  	function deleteContact(e) {
-                $("#info-msg-block>div").css('display', 'none');
  	  var msg   = $(e.target).serialize();
         $.ajax({
           type: 'POST',
@@ -28,7 +27,6 @@
     //for info message displayed when
     //new contact have been added
     function addContact(e) {
-                    $("#info-msg-block>div").css('display', 'none');
  	  var msg   = $(e.target).serialize();
         $.ajax({
           type: 'POST',
@@ -57,6 +55,7 @@
     //fade-in & fade-out #add-info/#delete-info
     //blocks
     function infoBlock(target, obj) {
+        $("#info-msg-block>div").css('display', 'none');
         target.find('span').empty();
         target.find('span').append(obj.firstName + ' ' + obj.lastName);
         target.fadeIn(400);
