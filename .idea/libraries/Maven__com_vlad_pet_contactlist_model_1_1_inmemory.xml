@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.vlad.pet.contactlist:model:1.1-inmemory">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/vlad/pet/contactlist/model/1.1-inmemory/model-1.1-inmemory.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/vlad/pet/contactlist/model/1.1-inmemory/model-1.1-inmemory-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/vlad/pet/contactlist/model/1.1-inmemory/model-1.1-inmemory-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -4,7 +4,7 @@
 
   <groupId>com.vlad.pet.contactlist</groupId>
   <artifactId>web-app</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0-ALPHA</version>
   <packaging>jar</packaging>
 
   <name>web-app</name>
@@ -26,7 +26,7 @@
     <dependency>
       <groupId>com.vlad.pet.contactlist</groupId>
       <artifactId>model</artifactId>
-      <version>1.1</version>
+      <version>1.1-inmemory</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
