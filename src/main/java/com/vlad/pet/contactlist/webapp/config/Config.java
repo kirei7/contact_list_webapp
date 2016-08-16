@@ -1,5 +1,7 @@
 package com.vlad.pet.contactlist.webapp.config;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,10 +18,12 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 import org.thymeleaf.dialect.IDialect;
 import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
+import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolver;
 
+import javax.annotation.PostConstruct;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -27,9 +31,9 @@ import java.util.Set;
 @Configuration
 @ImportResource("classpath:META-INF/spring/application-context.xml")
 public class Config extends WebMvcConfigurerAdapter {
+    private static Logger LOGGER = Logger.getLogger("debug");
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/hello").setViewName("hello");
         registry.addViewController("/login").setViewName("login");
     }
     //thymeleaf and template engine
@@ -40,9 +44,9 @@ public class Config extends WebMvcConfigurerAdapter {
     }
     @Bean
     public TemplateResolver templateResolver() {
-        TemplateResolver resolver = new ServletContextTemplateResolver();
+        TemplateResolver resolver = new SpringResourceTemplateResolver();
         resolver.setCharacterEncoding("UTF-8");
-        resolver.setPrefix("WEB-INF/templates/");
+        resolver.setPrefix("classpath:/templates/");
         resolver.setSuffix(".html");
         resolver.setTemplateMode("HTML5");
         return resolver;
@@ -66,6 +70,13 @@ public class Config extends WebMvcConfigurerAdapter {
         viewResolver.setOrder(1);
         return viewResolver;
     }
+    //resource handler
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/");
+    }
+
     @Bean
     public SpringSecurityDialect springSecurityDialect() {
         SpringSecurityDialect dialect = new SpringSecurityDialect();

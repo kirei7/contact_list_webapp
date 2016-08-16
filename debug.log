@@ -93,3 +93,6 @@
 2016-08-10 21:30:43,951 DEBUG [http-nio-8080-exec-8] debug [ContactComparator.java:14] -993
 2016-08-10 21:30:43,951 DEBUG [http-nio-8080-exec-8] debug [ContactComparator.java:13] 12 : 123
 2016-08-10 21:30:43,951 DEBUG [http-nio-8080-exec-8] debug [ContactComparator.java:14] -1
+2016-08-12 11:03:06,071 DEBUG [http-nio-8080-exec-7] debug [RootController.java:42] classpath:/templates/
+2016-08-15 15:53:51,874 DEBUG [http-nio-8080-exec-6] debug [ContactController.java:52] Object is not supported: Contact{id=null, firstName='123', lastName='', email='', mobileNum='', workNum=''}
+2016-08-15 15:53:54,325 DEBUG [http-nio-8080-exec-10] debug [ContactController.java:52] Object is not supported: Contact{id=null, firstName='123', lastName='', email='', mobileNum='', workNum=''}
