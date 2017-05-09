@@ -54,7 +54,7 @@ public class Config extends WebMvcConfigurerAdapter {
     @Bean
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-        Set<IDialect> dialects = new HashSet<IDialect>();
+        Set<IDialect> dialects = new HashSet<>();
         dialects.add(springSecurityDialect());
 
         templateEngine.setAdditionalDialects(dialects);
