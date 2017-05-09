@@ -1,0 +1,29 @@
+#act-info>h3 {
+    border-radius: 4px;
+    list-style: outside none none;
+    margin-top: 0;
+    padding: 8px 15px;
+}
+#info-msg-block {
+    height: 75px;
+    position: fixed;
+    top: 35px;
+    z-index: 999;
+}
+#info-msg-block h3 {
+    padding: 10px;
+    border-radius: 7px;
+}
+.modal-btn {
+    padding: 0 4px !important;
+}
+#add-contact-wrapper {
+    position: fixed;
+    width: 360px;
+}
+
+@media screen and (max-width: 767px) {
+    #add-contact-wrapper {
+        position: relative;
+    }
+}

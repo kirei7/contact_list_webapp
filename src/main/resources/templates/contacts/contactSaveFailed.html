@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layouts/layout-basic :: page">
+<head>
+    <title th:text="#{title.}" th:fragment="title"></title>
+</head>
+<body>
+<div th:fragment="content" class="row">
+<h1 th:text="#{addContact.failed}">Contact save failed</h1>
+</div>
+</body>
+</html>
